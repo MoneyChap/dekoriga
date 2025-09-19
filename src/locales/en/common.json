@@ -1,0 +1,7 @@
+{
+    "site_name": "Decoration rental",
+    "browse": "Browse catalog",
+    "price_per_day": "{{value, currency}} per day",
+    "items": "{{count}} item",
+    "items_plural": "{{count}} items"
+  }

@@ -1,0 +1,317 @@
+:root {
+    --pink-50: #ffeef4;
+    --pink-100: #ffd9e6;
+    --pink-300: #f6a9c2;
+    --pink-500: #ee7fa5;
+    --ink: #332e2f;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.55);
+    --shadow: 0 8px 20px rgba(233, 123, 150, 0.15);
+}
+
+.wrap {
+    position: fixed;
+    /* or absolute if it's inside the hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 12px auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.35);
+    /* keep the glassy look */
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.leaf {
+    width: 18px;
+    height: 26px;
+    background: var(--white);
+    border-radius: 60% 60% 60% 60%/70% 70% 30% 30%;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.6) inset;
+}
+
+.word {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 999px;
+    position: relative;
+    font-size: 20px;
+}
+
+.links a::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--pink-300), var(--white));
+    opacity: 0;
+    transform: translateY(2px);
+    transition: 300ms ease;
+}
+
+.links a:hover::after,
+.links a:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.lang {
+    display: none;
+    gap: 6px;
+    background: rgba(255, 255, 255, .25);
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.langBtn {
+    appearance: none;
+    border: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.langBtn[aria-pressed="true"] {
+    background: var(--white);
+    color: var(--ink);
+}
+
+.cta {
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 700;
+    box-shadow: 0 3px 0 rgba(255, 255, 255, .6) inset, 0 6px 20px rgba(255, 255, 255, .25);
+}
+
+.burger {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .25);
+    border: 1px solid rgba(255, 255, 255, .55);
+    cursor: pointer;
+    padding: 8px;
+}
+
+.burger span {
+    display: block;
+    height: 2px;
+    background: var(--white);
+    margin: 6px 0;
+    border-radius: 2px;
+}
+
+/* overlay + drawer */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 39;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    max-width: 380px;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--pink-100), var(--pink-50));
+    border-left: 1px solid rgba(255, 255, 255, .7);
+    box-shadow: -20px 0 40px rgba(233, 123, 150, 0.25);
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.open {
+    transform: translateX(0%);
+}
+
+.close {
+    margin: 14px 14px 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .25);
+    border: 1px solid rgba(255, 255, 255, .55);
+    color: var(--ink);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.drawerLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 14px;
+}
+
+.drawerLinks a {
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.drawerFooter {
+    margin-top: auto;
+    padding: 16px 20px 24px;
+}
+
+.langMobile {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, .6);
+    padding: 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .9);
+    margin-bottom: 16px;
+}
+
+.socials {
+    display: flex;
+    gap: 12px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--ink);
+}
+
+.cartBtn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .25);
+    border: 1px solid rgba(255, 255, 255, .55);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #bd8383;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Montserrat", serif;
+    display: grid;
+    place-items: center;
+    border: 2px solid #fff;
+}
+
+
+/* responsive */
+@media (min-width: 900px) {
+    .lang {
+        display: inline-flex;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .links {
+        display: flex;
+    }
+}
+
+@media (max-width: 899px) {
+    .links {
+        display: none;
+    }
+
+    .cta {
+        display: none;
+    }
+
+    .burger {
+        display: inline-block;
+    }
+}

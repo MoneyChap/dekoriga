@@ -1,0 +1,372 @@
+:root {
+    --bg: #eadbda;
+    --ink: #111;
+    --muted: #4b4747;
+    --border: #c9bcbc;
+    --btn-bg: #151515;
+    --btn-text: #fff;
+    --white: #ffffff;
+}
+
+.wrap {
+    background: #e1b4ad;
+    padding: 150px 16px 64px;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 64px;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+}
+
+.subtitle {
+    margin: 8px 0 0;
+    color: white;
+    font-size: 16px;
+}
+
+.controls {
+    margin: 18px auto 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.searchWrap {
+    position: relative;
+    width: 100%;
+}
+
+.search {
+    width: 100%;
+    padding: 12px 40px 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-size: 18px;
+    font-family: "Montserrat", serif;
+    outline: none;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--ink);
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Montserrat", serif;
+}
+
+.active {
+    background: #bd8383;
+    color: var(--btn-text);
+    border-color: #bd8383;
+}
+
+.check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkInput {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkBox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    background: var(--white);
+    display: inline-block;
+    position: relative;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+/* checkmark */
+.checkBox::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--btn-bg);
+    border-width: 0 2px 2px 0;
+    opacity: 0;
+    transform: rotate(45deg) scale(0.9);
+    transition: opacity .15s ease;
+}
+
+/* when checked */
+.checkInput:checked+.checkBox {
+    background: #bd8383;
+    border-color: #bd8383;
+}
+
+.checkInput:checked+.checkBox::after {
+    opacity: 1;
+    border-color: var(--btn-text);
+}
+
+.checkLabel {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.selectWrap {
+    display: inline-block;
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 42px 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    font-size: 18px;
+    font-family: "Montserrat", serif;
+    color: var(--ink);
+    line-height: 1.2;
+    cursor: pointer;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .08s ease;
+    outline: none;
+
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'><path fill='%23111' d='M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px 18px;
+}
+
+.select:hover {
+    transform: translateY(-1px);
+}
+
+.select:focus {
+    border-color: #bd8383;
+    box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08);
+}
+
+.select:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    margin: 32px 0;
+}
+
+.grid {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background: linear-gradient(180deg, var(--white), #fff8fa);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(233, 123, 150, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--bg);
+}
+
+.imageWrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.content {
+    padding: 14px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardTitle {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 20px;
+    color: var(--ink);
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cat {
+    opacity: .9;
+}
+
+.dot {
+    opacity: .6;
+}
+
+.price {
+    font-weight: 700;
+}
+
+.desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.ctas {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.btn {
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    appearance: none;
+    border: none;
+    padding: 7px 11px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.btnSolid {
+    background: #bd8383;
+    color: var(--btn-text);
+}
+
+.btnSolid:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.btnSolid:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btnGhost {
+    background: transparent;
+    color: var(--ink);
+}
+
+.btnGhost:hover {
+    background: rgba(255, 255, 255, .35);
+}
+
+.linkReset {
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .wrap {
+        padding-top: 120px;
+    }
+
+    .title {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories {
+        gap: 7px;
+    }
+
+    .chip {
+        font-size: 14px;
+    }
+
+    .cardTitle {
+        font-size: 18px;
+    }
+
+    .meta {
+        font-size: 12px;
+    }
+
+    .desc {
+        display: none;
+    }
+}
