@@ -1,0 +1,21 @@
+{
+    "back_to_catalog": "Back to catalog",
+    "included": "Included",
+    "not_included": "Not included",
+    "details": "Details",
+    "dimensions": "Dimensions",
+    "color": "Color",
+    "colors": "Colors",
+    "choose_color": "Choose color",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "rental_info": "Rental information",
+    "add_to_cart": "Add to cart",
+    "qty": "Qty",
+    "per_day": "per day",
+    "you_may_like": "You may also like",
+    "booked": "Booked",
+    "item_not_found": "Item not found.",
+    "rent": "Rent",
+    "back": "Back"
+}

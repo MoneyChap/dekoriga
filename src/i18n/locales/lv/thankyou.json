@@ -1,0 +1,10 @@
+{
+    "title": "Paldies!",
+    "message": {
+        "name_email": "{{name}}, mēs saņēmām jūsu pieprasījumu. Apstiprinājums nosūtīts uz {{email}}.",
+        "name_only": "{{name}}, mēs saņēmām jūsu pieprasījumu. Apstiprinājums ir nosūtīts uz e-pastu.",
+        "email_only": "Mēs saņēmām jūsu pieprasījumu. Apstiprinājums nosūtīts uz {{email}}.",
+        "plain": "Mēs saņēmām jūsu pieprasījumu. Apstiprinājums ir nosūtīts uz e-pastu."
+    },
+    "back_to_catalog": "Atpakaļ uz katalogu"
+}

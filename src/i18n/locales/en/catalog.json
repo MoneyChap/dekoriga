@@ -1,0 +1,23 @@
+{
+    "title": "Catalog",
+    "subtitle": "Birthdays, weddings, and gender reveal decorations ready to go.",
+    "search_placeholder": "Search items",
+    "search_alt": "search",
+    "only_available": "Only available",
+    "categories": {
+        "all": "All",
+        "bd": "Birthdays",
+        "wd": "Weddings",
+        "gr": "Gender reveals"
+    },
+    "sort_aria": "Sort items",
+    "sort_relevance": "Sort: relevance",
+    "sort_price_low": "Price: low to high",
+    "sort_price_high": "Price: high to low",
+    "sort_title_asc": "Title: A–Z",
+    "empty": "No items match your filters.",
+    "booked": "Booked",
+    "rent": "Rent",
+    "unavailable": "Unavailable",
+    "eur_prefix": "€"
+}

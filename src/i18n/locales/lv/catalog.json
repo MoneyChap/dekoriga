@@ -1,0 +1,23 @@
+{
+    "title": "Katalogs",
+    "subtitle": "Dzimšanas dienām, kāzām un gender reveal pasākumiem gatavas dekorācijas.",
+    "search_placeholder": "Meklēt preces",
+    "search_alt": "meklēt",
+    "only_available": "Tikai pieejamās",
+    "categories": {
+        "all": "Viss",
+        "bd": "Dzimšanas dienas",
+        "wd": "Kāzas",
+        "gr": "Gender reveal"
+    },
+    "sort_aria": "Kārtot preces",
+    "sort_relevance": "Kārtot: atbilstība",
+    "sort_price_low": "Cena: no zemākās",
+    "sort_price_high": "Cena: no augstākās",
+    "sort_title_asc": "Nosaukums: A–Z",
+    "empty": "Neviena prece neatbilst filtriem.",
+    "booked": "Rezervēts",
+    "rent": "Noma",
+    "unavailable": "Nav pieejams",
+    "eur_prefix": "€"
+}

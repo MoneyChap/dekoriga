@@ -3,6 +3,8 @@ import { useLocation, useParams, Link } from "react-router-dom";
 import { ITEMS, CATEGORY_LABELS } from "../../data/catalog";
 import styles from "./ItemPage.module.css";
 import { useCart } from "../../cart/CartContext";
+import { useTranslation } from 'react-i18next';
+
 
 export default function ItemPage() {
     const { id } = useParams();
@@ -10,6 +12,7 @@ export default function ItemPage() {
     const stateItem = location.state?.item;
     const item = stateItem || ITEMS.find((i) => i.id === id);
     const { add } = useCart();
+    const { t } = useTranslation('item');
 
     const related = useMemo(() => {
         if (!item) return [];
@@ -32,8 +35,8 @@ export default function ItemPage() {
         return (
             <section className={styles.wrap}>
                 <div className={styles.inner}>
-                    <p className={styles.empty}>Item not found.</p>
-                    <Link to="/catalog" className={styles.btnBack}>Back to catalog</Link>
+                    <p className={styles.empty}>{t("item_not_found")}</p>
+                    <Link to="/catalog" className={styles.btnBack}>{t("back_to_catalog")}</Link>
                 </div>
             </section>
         );
@@ -45,7 +48,7 @@ export default function ItemPage() {
                 <div className={styles.grid}>
                     <div className={styles.media}>
                         <img src={item.image} alt={item.title} />
-                        {!item.available && <span className={styles.badge}>Booked</span>}
+                        {!item.available && <span className={styles.badge}>{t("booked")}</span>}
                     </div>
 
                     <div className={styles.info}>
@@ -66,13 +69,13 @@ export default function ItemPage() {
                         <p className={styles.desc}>{item.description}</p>
 
                         <div className={styles.actions}>
-                            <Link to="/catalog" className={styles.btnGhost}>Back</Link>
+                            <Link to="/catalog" className={styles.btnGhost}>{t("back")}</Link>
                             <button
                                 className={styles.btnSolid}
                                 disabled={!item.available}
                                 onClick={() => add(item)}
                             >
-                                {item.available ? "Rent" : "Unavailable"}
+                                {item.available ? t("rent") : t("unavailable")}
                             </button>
                         </div>
 

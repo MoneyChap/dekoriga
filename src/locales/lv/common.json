@@ -1,7 +1,0 @@
-{
-    "site_name": "Dekorāciju noma",
-    "browse": "Apskatīt katalogu",
-    "price_per_day": "{{value, currency}} dienā",
-    "items": "{{count}} vienība",
-    "items_plural": "{{count}} vienības"
-}

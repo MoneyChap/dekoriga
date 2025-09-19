@@ -1,35 +1,28 @@
-import i18n from "../i18n";
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
+import i18n from '../i18n';
 
-export default function LanguageSwitcher() {
-    const langs = [
-        { code: "lv", label: "LV" },
-        { code: "en", label: "EN" }
-    ];
+const LanguageSwitcher = () => {
+    const [lang, setLang] = useState(i18n.language || 'en');
 
     useEffect(() => {
-        document.documentElement.lang = i18n.resolvedLanguage || "en";
-    }, [i18n.resolvedLanguage]);
+        const handler = (lng) => setLang(lng);
+        i18n.on('languageChanged', handler);
+        return () => i18n.off('languageChanged', handler);
+    }, []);
 
-    const setLang = (lng) => {
-        i18n.changeLanguage(lng);
-        localStorage.setItem("i18nextLng", lng);
+    const changeLang = (e) => {
+        const next = e.target.value;
+        i18n.changeLanguage(next);
+        // i18next-browser-languagedetector will cache in localStorage automatically
     };
 
-    const current = i18n.resolvedLanguage;
-
     return (
-        <div role="group" aria-label="Language">
-            {langs.map(l => (
-                <button
-                    key={l.code}
-                    onClick={() => setLang(l.code)}
-                    aria-pressed={current === l.code}
-                    style={{ marginRight: 8 }}
-                >
-                    {l.label}
-                </button>
-            ))}
-        </div>
+        <select value={lang} onChange={changeLang} aria-label="Language">
+            <option value="lv">LV</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+        </select>
     );
-}
+};
+
+export default LanguageSwitcher;

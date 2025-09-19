@@ -1,0 +1,10 @@
+{
+    "title": "Thank you!",
+    "message": {
+        "name_email": "{{name}}, we’ve received your request. A confirmation email was sent to {{email}}.",
+        "name_only": "{{name}}, we’ve received your request. A confirmation email has been sent.",
+        "email_only": "We’ve received your request. A confirmation email was sent to {{email}}.",
+        "plain": "We’ve received your request. A confirmation email has been sent."
+    },
+    "back_to_catalog": "Back to catalog"
+}

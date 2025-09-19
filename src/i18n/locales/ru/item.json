@@ -1,0 +1,21 @@
+{
+    "back_to_catalog": "Назад в каталог",
+    "included": "Включено",
+    "not_included": "Не включено",
+    "details": "Характеристики",
+    "dimensions": "Размеры",
+    "color": "Цвет",
+    "colors": "Цвета",
+    "choose_color": "Выберите цвет",
+    "available": "Доступно",
+    "unavailable": "Недоступно",
+    "rental_info": "Условия аренды",
+    "add_to_cart": "Добавить в корзину",
+    "qty": "Кол-во",
+    "per_day": "в день",
+    "you_may_like": "Вам может понравиться",
+    "booked": "Забронировано",
+    "item_not_found": "Товар не найден.",
+    "back": "Назад",
+    "rent": "Арендовать"
+}

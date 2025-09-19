@@ -1,0 +1,10 @@
+{
+    "required": "Šis lauks ir obligāts",
+    "email_invalid": "Ievadiet derīgu e-pastu",
+    "phone_invalid": "Ievadiet derīgu tālruņa numuru",
+    "min_length": "Jābūt vismaz {{min}} rakstzīmēm",
+    "max_length": "Jābūt ne vairāk kā {{max}} rakstzīmēm",
+    "date_required": "Izvēlieties datumu",
+    "time_required": "Izvēlieties laiku",
+    "agree_required": "Lūdzu, piekrītiet noteikumiem"
+}

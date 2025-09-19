@@ -1,0 +1,23 @@
+{
+    "title": "Каталог",
+    "subtitle": "Декор для дней рождения, свадеб и gender reveal — готов к аренде.",
+    "search_placeholder": "Поиск товаров",
+    "search_alt": "поиск",
+    "only_available": "Только доступные",
+    "categories": {
+        "all": "Все",
+        "bd": "Дни рождения",
+        "wd": "Свадьбы",
+        "gr": "Gender reveal"
+    },
+    "sort_aria": "Сортировать товары",
+    "sort_relevance": "Сортировка: по релевантности",
+    "sort_price_low": "Цена: по возрастанию",
+    "sort_price_high": "Цена: по убыванию",
+    "sort_title_asc": "Название: A–Z",
+    "empty": "По выбранным фильтрам ничего не найдено.",
+    "booked": "Забронировано",
+    "rent": "Арендовать",
+    "unavailable": "Недоступно",
+    "eur_prefix": "€"
+}

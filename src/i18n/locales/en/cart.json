@@ -1,0 +1,11 @@
+{
+    "dialog_aria": "Rental cart",
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "remove": "Remove",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "subtotal": "Subtotal",
+    "clear": "Clear",
+    "checkout": "Checkout"
+}

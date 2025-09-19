@@ -6,6 +6,8 @@ import birthdayImg from "../../assets/catalog/birthday.png";
 import searchIcon from "../../assets/catalog/lookingglass.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../../cart/CartContext";
+import { useTranslation } from "react-i18next";
+
 
 const ITEMS = [
     {
@@ -143,6 +145,7 @@ export default function CatalogSection() {
     const [onlyAvailable, setOnlyAvailable] = useState(false);
     const [sort, setSort] = useState("relevance");
     const { add } = useCart();
+    const { t, i18n } = useTranslation(["catalog", "products"]);
 
     const gridKey = `${category}|${query}|${sort}|${onlyAvailable}`;
 
@@ -169,34 +172,30 @@ export default function CatalogSection() {
         <section className={styles.wrap}>
             <div className={styles.inner}>
                 <header className={styles.header}>
-                    <h2 className={styles.title}>Catalog</h2>
-                    <p className={styles.subtitle}>
-                        Birthdays, weddings, and gender reveal decorations ready to go.
-                    </p>
+                    <h2 className={styles.title}>{t("catalog:title")}</h2>
+                    <p className={styles.subtitle}>{t("catalog:subtitle")}</p>
                 </header>
 
                 <div className={styles.controls}>
                     <div className={styles.searchWrap}>
                         <input
                             type="search"
-                            placeholder="Search items"
+                            placeholder={t("catalog:search_placeholder")}
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             className={styles.search}
                         />
-                        <img src={searchIcon} alt="search" className={styles.searchIcon} />
+                        <img src={searchIcon} alt={t("catalog:search_alt")} className={styles.searchIcon} />
                     </div>
 
                     <div className={styles.categories}>
                         {Object.entries(CATEGORY_LABELS).map(([key, label]) => (
                             <button
                                 key={key}
-                                className={
-                                    key === category ? `${styles.chip} ${styles.active}` : styles.chip
-                                }
+                                className={key === category ? `${styles.chip} ${styles.active}` : styles.chip}
                                 onClick={() => setCategory(key)}
                             >
-                                {label}
+                                {t(`catalog:categories.${key}`)}
                             </button>
                         ))}
                     </div>
@@ -209,7 +208,7 @@ export default function CatalogSection() {
                             className={styles.checkInput}
                         />
                         <span className={styles.checkBox}></span>
-                        <span className={styles.checkLabel}>Only available</span>
+                        <span className={styles.checkLabel}>{t("catalog:only_available")}</span>
                     </label>
 
                     <div className={styles.selectWrap}>
@@ -217,18 +216,18 @@ export default function CatalogSection() {
                             value={sort}
                             onChange={(e) => setSort(e.target.value)}
                             className={styles.select}
-                            aria-label="Sort items"
+                            aria-label={t("catalog:sort_aria")}
                         >
-                            <option value="relevance">Sort: relevance</option>
-                            <option value="price-asc">Price: low to high</option>
-                            <option value="price-desc">Price: high to low</option>
-                            <option value="title-asc">Title: A–Z</option>
+                            <option value="relevance">{t("catalog:sort_relevance")}</option>
+                            <option value="price-asc">{t("catalog:sort_price_low")}</option>
+                            <option value="price-desc">{t("catalog:sort_price_high")}</option>
+                            <option value="title-asc">{t("catalog:sort_title_asc")}</option>
                         </select>
                     </div>
                 </div>
 
                 {filtered.length === 0 ? (
-                    <p className={styles.empty}>No items match your filters.</p>
+                    <p className={styles.empty}>{t("catalog:empty")}</p>
                 ) : (
                     <motion.div
                         key={gridKey}
@@ -242,30 +241,32 @@ export default function CatalogSection() {
                                 <li key={item.id} className={styles.card}>
                                     <Link to={`/item/${item.id}`} state={{ item }} className={styles.linkReset}>
                                         <div className={styles.imageWrap}>
-                                            <img src={item.image} alt={item.title} />
-                                            {!item.available && <span className={styles.badge}>Booked</span>}
+                                            <img src={item.image} alt={t(`products:${item.id}.title`, { defaultValue: item.title })} />
+                                            {!item.available && <span className={styles.badge}>{t("catalog:booked")}</span>}
                                         </div>
 
                                         <div className={styles.content}>
-                                            <h3 className={styles.cardTitle}>{item.title}</h3>
+                                            <h3 className={styles.cardTitle}>
+                                                {t(`products:${item.id}.title`, { defaultValue: item.title })}
+                                            </h3>
                                             <div className={styles.meta}>
-                                                <span className={styles.cat}>{CATEGORY_LABELS[item.category]}</span>
+                                                <span className={styles.cat}>
+                                                    {t(`catalog:categories.${item.category}`, { defaultValue: item.category })}
+                                                </span>
                                                 <span className={styles.dot}>•</span>
                                                 <span className={styles.price}>€{item.price}</span>
                                             </div>
-                                            <p className={styles.desc}>{item.description}</p>
+                                            <p className={styles.desc}>
+                                                {t(`products:${item.id}.description`, { defaultValue: item.description })}
+                                            </p>
 
                                             <div className={styles.ctas}>
                                                 <button
                                                     className={`${styles.btn} ${styles.btnSolid}`}
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        e.stopPropagation();
-                                                        add(item);
-                                                    }}
+                                                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); add(item); }}
                                                     disabled={!item.available}
                                                 >
-                                                    {item.available ? "Rent" : "Unavailable"}
+                                                    {item.available ? t("catalog:rent") : t("catalog:unavailable")}
                                                 </button>
                                             </div>
                                         </div>

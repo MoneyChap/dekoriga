@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import { useCart } from "../../cart/CartContext";
+import LanguageSwitcher from '../LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export default function NavBar({ onCartClick }) {
     const [open, setOpen] = useState(false);
     const location = useLocation();
     const { count } = useCart();
-
+    const { t } = useTranslation('navbar');
 
     // close drawer on route change
     useEffect(() => setOpen(false), [location.pathname]);
@@ -19,10 +21,10 @@ export default function NavBar({ onCartClick }) {
 
     const NavLinks = ({ onClick }) => (
         <>
-            <Link to="/" onClick={onClick}>Home</Link>
-            <Link to="/catalog" onClick={onClick}>Catalog</Link>
-            <Link to="/gallery" onClick={onClick}>Gallery</Link>
-            <Link to="/contact" onClick={onClick}>Contact</Link>
+            <Link to="/" onClick={onClick}>{t("home")}</Link>
+            <Link to="/catalog" onClick={onClick}>{t("catalog")}</Link>
+            <Link to="/gallery" onClick={onClick}>{t("gallery")}</Link>
+            <Link to="/contact" onClick={onClick}>{t("contact")}</Link>
         </>
     );
 
@@ -43,6 +45,7 @@ export default function NavBar({ onCartClick }) {
                         <button className={styles.langBtn} aria-pressed="true">LV</button>
                         <button className={styles.langBtn}>EN</button>
                     </div>
+                    <LanguageSwitcher />
                     <button
                         className={styles.burger}
                         aria-label="Open menu"
