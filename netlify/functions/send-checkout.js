@@ -1,4 +1,5 @@
 const { Resend } = require("resend");
+require("dotenv").config();
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -20,15 +21,9 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: "Missing required fields" };
     }
 
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // const ownerEmail = process.env.SITE_OWNER_EMAIL;
-    // const fromEmail = process.env.FROM_EMAIL || "Dekoriga <no-reply@yourdomain.com>";
-
-    // --- SANDBOX TEST VALUES (hard-coded for now) ---
-    const resend = new Resend("re_8a5wi7oi_8mmXfmi6DDj6gPLQ7yo4zK3Q");
-    const ownerEmail = "osiseriks2@gmail.com";
-    const fromEmail = "delivered@resend.dev";
-    // ------------------------------------------------
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const ownerEmail = process.env.SITE_OWNER_EMAIL;
+    const fromEmail = process.env.FROM_EMAIL || "Dekoriga <no-reply@yourdomain.com>";
 
     const itemsHtml = items
       .map(
