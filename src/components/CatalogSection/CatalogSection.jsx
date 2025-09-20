@@ -4,7 +4,7 @@ import styles from "./CatalogSection.module.css";
 import genderImg from "../../assets/catalog/genderreveal.jpg";
 import birthdayImg from "../../assets/catalog/birthday.png";
 import searchIcon from "../../assets/catalog/lookingglass.svg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useCart } from "../../cart/CartContext";
 import { useTranslation } from "react-i18next";
 
@@ -145,7 +145,7 @@ export default function CatalogSection() {
     const [onlyAvailable, setOnlyAvailable] = useState(false);
     const [sort, setSort] = useState("relevance");
     const { add } = useCart();
-    const { t, i18n } = useTranslation(["catalog", "products"]);
+    const { t } = useTranslation(["catalog", "products"]);
 
     const gridKey = `${category}|${query}|${sort}|${onlyAvailable}`;
 
