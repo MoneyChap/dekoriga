@@ -88,16 +88,16 @@ export default function NavBar({ onCartClick }) {
                     </div>
 
                     <div className={styles.socials} aria-label="Social links">
-                        <a href="#" aria-label="Instagram" className={styles.icon}>
+                        <a href="/" aria-label="Instagram" className={styles.icon}>
                             <svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5C7.03 2 2 7.03 2 12s5.03 10 10 10 10-4.03 10-10S16.97 2 12 2zm6 4a1 1 0 110 2 1 1 0 010-2z" /></svg>
                         </a>
-                        <a href="#" aria-label="TikTok" className={styles.icon}>
+                        <a href="/" aria-label="TikTok" className={styles.icon}>
                             <svg viewBox="0 0 24 24"><path d="M14 3v8.2a4.2 4.2 0 11-3-1V7a7 7 0 004 1.2V3h-1z" /></svg>
                         </a>
-                        <a href="#" aria-label="YouTube" className={styles.icon}>
+                        <a href="/" aria-label="YouTube" className={styles.icon}>
                             <svg viewBox="0 0 24 24"><path d="M22 8.2a3 3 0 00-2.1-2.1C18.2 5.5 12 5.5 12 5.5s-6.2 0-7.9.6A3 3 0 002 8.2 31 31 0 002 12a31 31 0 000 3.8 3 3 0 002.1 2.1c1.7.6 7.9.6 7.9.6s6.2 0 7.9-.6A3 3 0 0022 15.8 31 31 0 0022 12a31 31 0 000-3.8zM10 14.7V9.3l4.5 2.7L10 14.7z" /></svg>
                         </a>
-                        <a href="#" aria-label="Telegram" className={styles.icon}>
+                        <a href="/" aria-label="Telegram" className={styles.icon}>
                             <svg viewBox="0 0 24 24"><path d="M9.5 13.2l6.8-4.4-8 3.5L3 11.4l18-7.4L17.6 20l-6.4-5.1-.7 2.9-2.3-4.6 1.3-.4z" /></svg>
                         </a>
                     </div>
