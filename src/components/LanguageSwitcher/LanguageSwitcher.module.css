@@ -1,0 +1,61 @@
+.group {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    background: rgba(255, 255, 255, .25);
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.groupMobile {
+    gap: 10px;
+}
+
+.btn {
+    appearance: none;
+    border: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn[aria-pressed="true"] {
+    background: var(--white);
+    color: var(--ink);
+}
+
+.btnInline {}
+
+.btnMobile {
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+.hideMobile {
+    display: inline-flex;
+}
+
+@media (max-width: 768px) {
+    .groupInline {
+        gap: 6px;
+    }
+
+    .btnInline {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .hideMobile {
+        display: none !important;
+    }
+}
