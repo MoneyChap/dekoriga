@@ -11,6 +11,8 @@ import ItemPage from "./components/ItemPage/ItemPage";
 import CartModal from "./components/Cart/CartModal";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import ThankYou from "./components/CheckoutPage/ThankYouPage";
+import Footer from "./components/Footer/Footer";
+
 
 function Page({ children }) {
   return (
@@ -50,6 +52,7 @@ export default function App() {
           <NavBar onCartClick={() => setCartOpen(true)} />
           <AnimatedRoutes />
           <CartModal open={cartOpen} onClose={() => setCartOpen(false)} />
+          <Footer />
         </div>
       </Router>
     </CartProvider>
